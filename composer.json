@@ -1,0 +1,23 @@
+{
+    "name": "docdocdoc/nexmo-bundle",
+    "description": "Send SMS with nexmo.com and symfony",
+    "keywords": ["sms", "nexmo"],
+    "type": "symfony-bundle",
+    "require": {
+        "guzzlehttp/guzzle": "~4.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cedric LOMBARDOT",
+            "email": "cedric.lombardot@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "target-dir": "DocDocDoc/NexmoBundle",
+    "autoload": {
+        "psr-0": {
+            "DocDocDoc\\NexmoBundle": ""
+        }
+    }
+}

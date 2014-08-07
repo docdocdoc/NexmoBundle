@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="doc_doc_doc_nexmo.send_sms.class">DocDocDoc\NexmoBundle\Provider\Sms</parameter>
+        <parameter key="doc_doc_doc_nexmo.send_mail.class">DocDocDoc\NexmoBundle\Provider\Mail</parameter>
+        <parameter key="doc_doc_doc_nexmo.noop.class">DocDocDoc\NexmoBundle\Provider\Noop</parameter>
+    </parameters>
+
+    <services>
+        <service id="doc_doc_doc_nexmo.send_sms" class="%doc_doc_doc_nexmo.send_sms.class%">
+            <argument>https://rest.nexmo.com</argument>
+            <argument></argument><!--api_key -->
+            <argument></argument><!--api_secret -->
+        </service>
+
+        <service id="doc_doc_doc_nexmo.send_mail" class="%doc_doc_doc_nexmo.send_mail.class%">
+            <argument></argument><!--mail_to -->
+            <argument type="service" id="mailer" />
+        </service>
+
+        <service id="doc_doc_doc_nexmo.noop" class="%doc_doc_doc_nexmo.noop.class%">
+        </service>
+    </services>
+</container>
