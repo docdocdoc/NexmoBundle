@@ -33,7 +33,7 @@ MAIL;
         $email = \Swift_Message::newInstance()
             ->setSubject('[SMS] From : '.$message->from)
             ->setTo($this->mailTo)
-            ->setFrom($this->mailTo)
+            ->setFrom('no-reply@nexmobundle.com')
             ->setBody($body)
         ;
         $this->mailer->send($email);
