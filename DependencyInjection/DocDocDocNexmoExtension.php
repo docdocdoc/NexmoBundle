@@ -28,6 +28,7 @@ class DocDocDocNexmoExtension extends Extension
 
         $container->getDefinition('doc_doc_doc_nexmo.send_mail')
                 ->replaceArgument(0, $config['mail_to'])
+                ->replaceArgument(1, $config['mail_from'])
                 ;
 
         $container->setAlias('doc_doc_doc_nexmo', $config['provider']);

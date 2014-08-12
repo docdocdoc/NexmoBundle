@@ -19,6 +19,7 @@
 
         <service id="doc_doc_doc_nexmo.send_mail" class="%doc_doc_doc_nexmo.send_mail.class%">
             <argument></argument><!--mail_to -->
+            <argument></argument><!--mail_from-->
             <argument type="service" id="mailer" />
         </service>
 

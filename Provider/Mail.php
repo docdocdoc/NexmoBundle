@@ -10,9 +10,10 @@ class Mail implements ProviderInterface
     private $mailTo;
     private $mailer;
 
-    public function __construct($mailTo, \Swift_Mailer $mailer)
+    public function __construct($mailTo, $mailFrom, \Swift_Mailer $mailer)
     {
         $this->mailTo = $mailTo;
+        $this->mailFrom = $mailFrom;
         $this->mailer = $mailer;
     }
 
@@ -33,9 +34,10 @@ MAIL;
         $email = \Swift_Message::newInstance()
             ->setSubject('[SMS] From : '.$message->from)
             ->setTo($this->mailTo)
-            ->setFrom('no-reply@nexmobundle.com')
+            ->setFrom($this->mailFrom)
             ->setBody($body)
         ;
+
         $this->mailer->send($email);
 
         return new NexmoResponse([

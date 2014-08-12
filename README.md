@@ -45,6 +45,7 @@ in config.yml :
 doc_doc_doc_nexmo:
     provider: doc_doc_doc_nexmo.send_mail
     mail_to: email@allsmshere.com
+    mail_from: [default: no-reply@nexmobundle.com]
 ````
 
 *Just trash it*

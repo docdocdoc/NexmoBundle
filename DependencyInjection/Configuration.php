@@ -23,6 +23,7 @@ class Configuration implements ConfigurationInterface
                 ->scalarNode('api_key')->defaultNull()->end()
                 ->scalarNode('api_secret')->defaultNull()->end()
                 ->scalarNode('mail_to')->defaultNull()->end()
+                ->scalarNode('mail_from')->defaultValue('no-reply@nexmobundle.com')->end()
             ->end()
             ;
 
