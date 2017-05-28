@@ -4,7 +4,7 @@
     "keywords": ["sms", "nexmo"],
     "type": "symfony-bundle",
     "require": {
-        "guzzlehttp/guzzle": ">4.0"
+        "guzzlehttp/guzzle": "*"
     },
     "license": "MIT",
     "authors": [
