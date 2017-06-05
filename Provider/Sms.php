@@ -29,21 +29,21 @@ class Sms implements ProviderInterface
         $params = $message->toRequest();
         $params['api_key']    = $this->api_key;
         $params['api_secret'] = $this->api_secret;
-
         try {
-            $request = $client->createRequest('POST', $this->nexmo_base_url.self::SMS_ENDPOINT);
-            $postBody = $request->getBody();
+            $postBody = [];
 
             foreach ($params as $key => $value) {
-                $postBody->setField($key, $value);
+                $postBody[$key] = $value;
             }
             
-            $response = $client->send($request);
+            $response = $client->request('POST', $this->nexmo_base_url.self::SMS_ENDPOINT, [
+                'form_params' => $postBody
+            ]);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
         }
 
-        $json = $response->json();
+        $json = json_decode($response->getBody(), true);
 
         if ($json['messages'][0]['status'] != self::STATUS_SUCCESS) {
             throw new NexmoException($json['messages'][0]['status'], $json['messages'][0]['error-text']);
